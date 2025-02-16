@@ -1,11 +1,11 @@
 {
   "name": "belajar-typescript-restfull-api",
   "version": "1.0.0",
-  "main": "src/main.js",
+  "main": "src/index.js",
   "scripts": {
     "test": "jest --runInBand",
     "build": "tsc",
-    "start": "node dist/main.js"
+    "start": "node dist/index.js"
   },
   "keywords": [],
   "author": "Ahmad Nidzam Musthafa",
