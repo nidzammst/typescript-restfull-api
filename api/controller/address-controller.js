@@ -1,80 +1,97 @@
 "use strict";
-// import { NextFunction, Response } from "express";
-// import { UserRequest } from "../type/user-request";
-// import {
-//   CreateAddressRequest,
-//   UpdateAddressRequest,
-// } from "../model/address-model";
-// import { AddressService } from "../service/address-service";
-// export class AddressController {
-//   static async create(req: UserRequest, res: Response, next: NextFunction) {
-//     try {
-//       const request: CreateAddressRequest = req.body as CreateAddressRequest;
-//       request.contact_id = Number(req.params.contactId);
-//       const response = await AddressService.create(req.user!, request);
-//       res.status(200).json({
-//         data: response,
-//       });
-//     } catch (error) {
-//       next(error);
-//     }
-//   }
-//   static async get(req: UserRequest, res: Response, next: NextFunction) {
-//     try {
-//       const contactId = Number(req.params.contactId);
-//       const addressId = Number(req.params.addressId);
-//       const response = await AddressService.get(req.user!, {
-//         contact_id: contactId,
-//         id: addressId,
-//       });
-//       res.status(200).json({
-//         data: response,
-//       });
-//     } catch (error) {
-//       next(error);
-//     }
-//   }
-//   static async update(req: UserRequest, res: Response, next: NextFunction) {
-//     try {
-//       const request: UpdateAddressRequest = req.body as UpdateAddressRequest;
-//       request.contact_id = Number(req.params.contactId);
-//       request.id = Number(req.params.addressId);
-//       const response = await AddressService.update(req.user!, request);
-//       res.status(200).json({
-//         data: response,
-//       });
-//     } catch (error) {
-//       next(error);
-//     }
-//   }
-//   static async remove(
-//     req: UserRequest,
-//     res: Response,
-//     next: NextFunction
-//   ): Promise<void> {
-//     try {
-//       const contactId = Number(req.params.contactId);
-//       const addressId = Number(req.params.addressId);
-//       await AddressService.remove(req.user!, {
-//         contact_id: contactId,
-//         id: addressId,
-//       });
-//       res.status(204).json({
-//         data: "OK",
-//       });
-//     } catch (error) {
-//       next(error);
-//     }
-//   }
-//   static async list(req: UserRequest, res: Response, next: NextFunction) {
-//     try {
-//       const contactId = Number(req.params.contactId);
-//       const response = await AddressService.list(req.user!, contactId);
-//       res.status(200).json({
-//         data: response,
-//       });
-//     } catch (error) {
-//       next(error);
-//     }
-//   }
-// }
+var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, generator) {
+    function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }
+    return new (P || (P = Promise))(function (resolve, reject) {
+        function fulfilled(value) { try { step(generator.next(value)); } catch (e) { reject(e); } }
+        function rejected(value) { try { step(generator["throw"](value)); } catch (e) { reject(e); } }
+        function step(result) { result.done ? resolve(result.value) : adopt(result.value).then(fulfilled, rejected); }
+        step((generator = generator.apply(thisArg, _arguments || [])).next());
+    });
+};
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.AddressController = void 0;
+const address_service_1 = require("../service/address-service");
+class AddressController {
+    static create(req, res, next) {
+        return __awaiter(this, void 0, void 0, function* () {
+            try {
+                const request = req.body;
+                request.contact_id = Number(req.params.contactId);
+                const response = yield address_service_1.AddressService.create(req.user, request);
+                res.status(200).json({
+                    data: response,
+                });
+            }
+            catch (error) {
+                next(error);
+            }
+        });
+    }
+    static get(req, res, next) {
+        return __awaiter(this, void 0, void 0, function* () {
+            try {
+                const contactId = Number(req.params.contactId);
+                const addressId = Number(req.params.addressId);
+                const response = yield address_service_1.AddressService.get(req.user, {
+                    contact_id: contactId,
+                    id: addressId,
+                });
+                res.status(200).json({
+                    data: response,
+                });
+            }
+            catch (error) {
+                next(error);
+            }
+        });
+    }
+    static update(req, res, next) {
+        return __awaiter(this, void 0, void 0, function* () {
+            try {
+                const request = req.body;
+                request.contact_id = Number(req.params.contactId);
+                request.id = Number(req.params.addressId);
+                const response = yield address_service_1.AddressService.update(req.user, request);
+                res.status(200).json({
+                    data: response,
+                });
+            }
+            catch (error) {
+                next(error);
+            }
+        });
+    }
+    static remove(req, res, next) {
+        return __awaiter(this, void 0, void 0, function* () {
+            try {
+                const contactId = Number(req.params.contactId);
+                const addressId = Number(req.params.addressId);
+                yield address_service_1.AddressService.remove(req.user, {
+                    contact_id: contactId,
+                    id: addressId,
+                });
+                res.status(204).json({
+                    data: "OK",
+                });
+            }
+            catch (error) {
+                next(error);
+            }
+        });
+    }
+    static list(req, res, next) {
+        return __awaiter(this, void 0, void 0, function* () {
+            try {
+                const contactId = Number(req.params.contactId);
+                const response = yield address_service_1.AddressService.list(req.user, contactId);
+                res.status(200).json({
+                    data: response,
+                });
+            }
+            catch (error) {
+                next(error);
+            }
+        });
+    }
+}
+exports.AddressController = AddressController;
