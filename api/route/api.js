@@ -8,6 +8,7 @@ const express_1 = __importDefault(require("express"));
 const auth_middleware_1 = require("../middleware/auth-middleware");
 const user_controller_1 = require("../controller/user-controller");
 const contact_controller_1 = require("../controller/contact-controller");
+// import { AddressController } from "../controller/address-controller";
 exports.apiRouter = express_1.default.Router();
 exports.apiRouter.use(auth_middleware_1.authMiddleware);
 // User API

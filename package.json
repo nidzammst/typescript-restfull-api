@@ -5,7 +5,7 @@
   "scripts": {
     "test": "jest --runInBand",
     "build": "tsc --outDir api",
-    "start": "node dist/index.js"
+    "start": "node api/index.js"
   },
   "keywords": [],
   "author": "Ahmad Nidzam Musthafa",
